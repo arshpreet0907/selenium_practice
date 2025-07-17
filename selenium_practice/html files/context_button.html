@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context Menu Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .main-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
+        }
+
+        .main-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(238, 90, 36, 0.4);
+        }
+
+        .context-menu {
+            position: absolute;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            padding: 8px 0;
+            min-width: 180px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .context-menu-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .context-menu-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .context-menu-item.separator {
+            border-top: 1px solid #eee;
+            margin: 5px 0;
+            padding: 0;
+            height: 1px;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            z-index: 1001;
+            display: none;
+            pointer-events: none;
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border: 5px solid transparent;
+            border-top-color: #333;
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            opacity: 0.7;
+        }
+
+        .demo-info {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .demo-info h3 {
+            margin: 0 0 10px 0;
+            color: #1976d2;
+        }
+
+        .demo-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="demo-info">
+        <h3>Interactive Button Demo</h3>
+        <p><strong>Hover:</strong> Shows tooltip "Right click to show more"</p>
+        <p><strong>Right Click:</strong> Opens context menu with options</p>
+        <p><strong>Left Click:</strong> Regular button action</p>
+    </div>
+
+    <button id="mainButton" class="main-button" title="Right click to show more">
+        Click Me or Right Click for Menu
+    </button>
+
+    <div id="contextMenu" class="context-menu">
+        <div class="context-menu-item" data-action="copy">
+            <span class="icon">📋</span>
+            Copy
+        </div>
+        <div class="context-menu-item" data-action="paste">
+            <span class="icon">📄</span>
+            Paste
+        </div>
+        <div class="context-menu-item separator"></div>
+        <div class="context-menu-item" data-action="edit">
+            <span class="icon">✏️</span>
+            Edit
+        </div>
+        <div class="context-menu-item" data-action="delete">
+            <span class="icon">🗑️</span>
+            Delete
+        </div>
+        <div class="context-menu-item separator"></div>
+        <div class="context-menu-item" data-action="properties">
+            <span class="icon">⚙️</span>
+            Properties
+        </div>
+    </div>
+
+    <div id="tooltip" class="tooltip">Right click to show more</div>
+</div>
+
+<script>
+    const button = document.getElementById('mainButton');
+    const contextMenu = document.getElementById('contextMenu');
+    const tooltip = document.getElementById('tooltip');
+
+    // Show tooltip on hover
+    button.addEventListener('mouseenter', (e) => {
+        const rect = button.getBoundingClientRect();
+        tooltip.style.left = (rect.left + rect.width / 2 - tooltip.offsetWidth / 2) + 'px';
+        tooltip.style.top = (rect.top - tooltip.offsetHeight - 10) + 'px';
+        tooltip.style.display = 'block';
+    });
+
+    // Hide tooltip when mouse leaves
+    button.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+    });
+
+    // Show context menu on right click
+    button.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+
+        // Position the context menu
+        contextMenu.style.left = e.pageX + 'px';
+        contextMenu.style.top = e.pageY + 'px';
+        contextMenu.style.display = 'block';
+
+        // Hide tooltip when context menu is shown
+        tooltip.style.display = 'none';
+    });
+
+    // Handle context menu item clicks
+    contextMenu.addEventListener('click', (e) => {
+        const item = e.target.closest('.context-menu-item');
+        if (item && item.dataset.action) {
+            alert(`Action selected: ${item.dataset.action}`);
+            contextMenu.style.display = 'none';
+        }
+    });
+
+    // Hide context menu when clicking elsewhere
+    document.addEventListener('click', (e) => {
+        if (!contextMenu.contains(e.target) && e.target !== button) {
+            contextMenu.style.display = 'none';
+        }
+    });
+
+    // Regular button click
+    button.addEventListener('click', (e) => {
+        // Only handle left clicks (right clicks are handled by contextmenu event)
+        if (e.button === 0) {
+            alert('Button clicked normally!');
+        }
+    });
+
+    // Hide context menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            contextMenu.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>

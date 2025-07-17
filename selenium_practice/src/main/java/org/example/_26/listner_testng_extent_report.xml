@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite  name="Suite">
+    <listeners>
+        <listener class-name="org.example._26.ExtentReportWithListener"/>
+    </listeners>
+    <test  name="ListenTest" >
+        <parameter name="report_name" value="_26_my_report"/>
+        <classes>
+            <class name="org.example._26.ListenerT"/>
+        </classes>
+    </test>
+</suite>

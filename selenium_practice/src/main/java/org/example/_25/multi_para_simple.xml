@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="3">
+    <parameter name="browser" value="chrome,edge"/>
+    <parameter name="url" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"/>
+    <test name="ParamTest1">
+        <classes >
+            <class name="org.example._25.ParamTest" />
+        </classes>
+    </test>
+</suite>

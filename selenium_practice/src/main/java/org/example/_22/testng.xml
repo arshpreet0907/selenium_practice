@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="D:/training/selenium/IdeaProjects/selenium_practice/src/main/java/org/example/_22/OrangeHRMTest.java">
+        <classes>
+            <class name="org.example._22.OrangeHRMTest">
+                <methods>
+                    <include name="open_app"/>
+                    <include name="test_logo"/>
+                    <include name="login"/>
+                    <include name="logout"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

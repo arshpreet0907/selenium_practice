@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-04T11:37:17 IST" name="All Test Suite" finished-at="2025-07-04T11:37:29 IST" duration-ms="11711">
+    <groups>
+    </groups>
+    <test started-at="2025-07-04T11:37:17 IST" name="D:/training/selenium/IdeaProjects/selenium_practice/src/main/java/org/example/_22OrangeHRMTest.java" finished-at="2025-07-04T11:37:29 IST" duration-ms="11711">
+      <class name="org.example._22OrangeHRMTest">
+        <test-method signature="open_app()[pri:1, instance:org.example._22OrangeHRMTest@2b662a77]" started-at="2025-07-04T11:37:17 IST" name="open_app" finished-at="2025-07-04T11:37:23 IST" duration-ms="6057" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- open_app -->
+        <test-method signature="test_logo()[pri:2, instance:org.example._22OrangeHRMTest@2b662a77]" started-at="2025-07-04T11:37:23 IST" name="test_logo" finished-at="2025-07-04T11:37:25 IST" duration-ms="1254" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_logo -->
+        <test-method signature="login()[pri:3, instance:org.example._22OrangeHRMTest@2b662a77]" started-at="2025-07-04T11:37:25 IST" name="login" finished-at="2025-07-04T11:37:25 IST" duration-ms="199" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="logout()[pri:4, instance:org.example._22OrangeHRMTest@2b662a77]" started-at="2025-07-04T11:37:25 IST" name="logout" finished-at="2025-07-04T11:37:29 IST" duration-ms="4158" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+      </class> <!-- org.example._22OrangeHRMTest -->
+    </test> <!-- D:/training/selenium/IdeaProjects/selenium_practice/src/main/java/org/example/_22OrangeHRMTest.java -->
+  </suite> <!-- All Test Suite -->
+</testng-results>

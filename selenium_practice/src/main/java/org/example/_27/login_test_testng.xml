@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Page Object Suite">
+    <listeners>
+        <listener class-name="org.example._26.ExtentReportWithListener"/>
+    </listeners>
+    <test name="login test">
+        <parameter name="report_name" value="_27_my_report"/>
+        <classes>
+            <class name="org.example._27.LoginTest">
+            </class>
+        </classes>
+    </test>
+</suite>

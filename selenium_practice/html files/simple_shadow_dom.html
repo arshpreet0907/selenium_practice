@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* This style won't affect content inside shadow DOM */
+        p { color: red; }
+    </style>
+</head>
+<body>
+<div id="host">
+    <p>This paragraph will be red</p>
+</div>
+<!-- Light DOM -->
+<user-card>
+    <span slot="name">Alice</span> <!-- Content projected into Shadow DOM slot -->
+</user-card>
+
+<script>
+    const card = document.querySelector('user-card');
+    const shadow = card.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `
+      <div>
+        <b>Name:</b> <slot name="name">Default</slot> <!-- Slot placeholder -->
+      </div>
+    `;
+</script>
+<script>
+    // Get the host element
+    const host = document.getElementById('host');
+
+    // Create shadow root in open mode
+    const shadowRoot = host.attachShadow({ mode: 'open' });
+
+    // Add content to shadow DOM
+    shadowRoot.innerHTML = `
+        <style>
+            /* This style is scoped to shadow DOM */
+            p { color: blue; font-weight: bold; }
+            .container { border: 2px solid green; padding: 10px; }
+        </style>
+        <div class="container">
+            <p>This paragraph will be blue and bold</p>
+            <slot></slot>
+        </div>
+    `;
+</script>
+</body>
+</html>

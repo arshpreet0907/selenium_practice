@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow DOM vs Regular DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        /* This CSS will affect regular DOM elements */
+        .demo-container {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #333;
+            background-color: white;
+        }
+
+        p {
+            color: red;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .explanation {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-left: 4px solid #0066cc;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<h1>Understanding DOM vs Shadow DOM</h1>
+
+<div class="explanation">
+    <strong>Notice:</strong> The page CSS makes all paragraphs RED and all buttons RED with white text.
+</div>
+
+<div class="demo-container">
+    <h2>Regular DOM (Main House)</h2>
+    <p>This paragraph is affected by the main page CSS - it's RED!</p>
+    <button onclick="alert('Regular DOM button clicked!')">Regular Button</button>
+    <div id="regular-widget">
+        <p>This paragraph is also RED because it's in the regular DOM</p>
+    </div>
+</div>
+
+<div class="demo-container">
+    <h2>Shadow DOM (Private Room)</h2>
+    <p>This paragraph is RED because it's still in regular DOM</p>
+
+    <!-- This is our Shadow Host (the front door) -->
+    <div id="shadow-host" style="border: 3px dashed green; padding: 15px;">
+        <p>I'm the Shadow Host (front door) - still RED because I'm in regular DOM</p>
+        <!-- The shadow content will be inserted here -->
+    </div>
+
+    <div class="explanation">
+        <strong>Look inside the green dashed box above!</strong> The shadow DOM content has its own styles that override the main page styles.
+    </div>
+</div>
+
+<div class="demo-container">
+    <h2>Multiple Shadow DOM Components</h2>
+    <div id="widget1" class="shadow-widget"></div>
+    <div id="widget2" class="shadow-widget"></div>
+
+    <div class="explanation">
+        Each shadow DOM component above is completely isolated from the others and from the main page.
+    </div>
+</div>
+
+<script>
+    // Create Shadow DOM example
+    function createShadowWidget() {
+        // Step 1: Get the shadow host (front door)
+        const shadowHost = document.getElementById('shadow-host');
+
+        // Step 2: Create shadow root (private room)
+        const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
+
+        // Step 3: Add content to shadow DOM (furnish the private room)
+        shadowRoot.innerHTML = `
+            <style>
+                /* These styles ONLY affect content inside THIS shadow DOM */
+                p {
+                    color: blue !important;
+                    font-size: 18px;
+                    font-weight: bold;
+                    background-color: lightblue;
+                    padding: 10px;
+                    border-radius: 5px;
+                }
+
+                button {
+                    background-color: green !important;
+                    color: white;
+                    padding: 12px 24px;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-size: 16px;
+                }
+
+                button:hover {
+                    background-color: darkgreen;
+                }
+
+                .shadow-container {
+                    background-color: #f9f9f9;
+                    padding: 15px;
+                    border-radius: 10px;
+                    border: 2px solid blue;
+                }
+            </style>
+
+            <div class="shadow-container">
+                <p>🎉 I'm BLUE! I live in Shadow DOM and have my own private styles!</p>
+                <button onclick="showShadowAlert()">Shadow DOM Button (Green!)</button>
+                <p>Main page CSS can't touch me! I'm protected by the Shadow Boundary!</p>
+            </div>
+        `;
+
+        // Add JavaScript function to shadow DOM
+        shadowRoot.querySelector('button').addEventListener('click', function() {
+            alert('Hello from Shadow DOM! 🌟\n\nI\'m completely isolated from the main page!');
+        });
+    }
+
+    // Create multiple isolated shadow widgets
+    function createMultipleWidgets() {
+        const colors = [
+            { bg: '#ffebee', text: '#c62828', border: '#f44336' },
+            { bg: '#e8f5e8', text: '#2e7d32', border: '#4caf50' }
+        ];
+
+        ['widget1', 'widget2'].forEach((id, index) => {
+            const host = document.getElementById(id);
+            const shadowRoot = host.attachShadow({ mode: 'open' });
+            const color = colors[index];
+
+            shadowRoot.innerHTML = `
+                <style>
+                    .widget-content {
+                        background-color: ${color.bg};
+                        color: ${color.text};
+                        border: 2px solid ${color.border};
+                        padding: 20px;
+                        border-radius: 10px;
+                        margin: 10px 0;
+                    }
+
+                    h3 {
+                        margin-top: 0;
+                        color: ${color.text};
+                    }
+
+                    p {
+                        color: ${color.text} !important;
+                        font-size: 14px;
+                    }
+
+                    button {
+                        background-color: ${color.border};
+                        color: white;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+                </style>
+
+                <div class="widget-content">
+                    <h3>Shadow Widget ${index + 1}</h3>
+                    <p>I'm completely isolated! My styles don't affect anything outside.</p>
+                    <button>Widget ${index + 1} Button</button>
+                </div>
+            `;
+
+            shadowRoot.querySelector('button').addEventListener('click', function() {
+                alert(`This is Widget ${index + 1} - I'm independent!`);
+            });
+        });
+    }
+
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        createShadowWidget();
+        createMultipleWidgets();
+    });
+</script>
+</body>
+</html>

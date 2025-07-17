@@ -1,0 +1,39 @@
+        // GetRect
+        // Returns height, width, x and y coordinates referenced element
+        Rectangle res =  driver.findElement(By.name("range_input")).getRect();
+
+     // Retrieves the computed style property 'font-size' of field
+     String cssValue = driver.findElement(By.name("color_input")).getCssValue("font-size");
+
+        alert = driver.switchTo().alert();
+        assertEquals("What is your name?", alert.getText());
+        alert.sendKeys("Selenium");
+        alert.accept();
+
+20. What are the different browser options you can set for ChromeDriver?
+Answer:
+javaChromeOptions options = new ChromeOptions();
+options.addArguments("--headless");
+options.addArguments("--disable-gpu");
+options.addArguments("--window-size=1920,1080");
+WebDriver driver = new ChromeDriver(options);
+
+
+TakesScreenshot screenshot = (TakesScreenshot) driver;
+File sourceFile = screenshot.getScreenshotAs(OutputType.FILE);
+File destFile = new File("screenshot.png");
+FileUtils.copyFile(sourceFile, destFile);
+
+
+16. How do you select a dropdown option by visible text?
+Answer:
+javaWebElement dropdown = driver.findElement(By.id("dropdownId"));
+Select select = new Select(dropdown);
+select.selectByVisibleText("Option Text");
+17. What is the Select class in Selenium?
+Answer: The Select class is used to handle dropdown elements. It provides methods like selectByVisibleText(), selectByValue(), selectByIndex(), and methods to get selected options.
+
+
+
+String b = new String("hello").intern();  // Forces use of String Pool
+System.out.println(a == b);  // Now true
