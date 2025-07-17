@@ -427,6 +427,19 @@ public class Main {
                                  * 2) Provide user info to git repository
                                          * git config --global user.name "Arshpreet Singh"
                                          * git config --global user.email "arshpreet0907singh@gmail.com"
+                                 * 3) Adding files/folders to staging/indexing
+                                         * git add . : add all the files and folders to staging
+                                         * git add filename : particular file
+                                         * git add *.java : all java files
+                                         * git add folder_name : particular folder
+                                 * Check status of files being tracked :
+                                         * git status : files green are being tracked
+                                 * 4) Commit the code into local(git) repository :
+                                         * git commit -m "commit message"
+                                 * 5) Establish connection between local and global repository before first push
+                                         * git remote add origin "remote repository url"
+                                 * 6) Push the code into remote repository : 
+                                         * git push origin master
 
 
 
