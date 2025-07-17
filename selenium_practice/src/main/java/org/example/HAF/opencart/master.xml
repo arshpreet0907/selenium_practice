@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Master Suite" thread-count="1" parallel="tests">
-<!--    <listeners>-->
-<!--        <listener class-name="utilities.ExtentReportUtility"/>-->
-<!--    </listeners>-->
+    <listeners>
+        <listener class-name="utilities.ExtentReportUtility"/>
+    </listeners>
     <test name="Test1" >
         <parameter name="os" value="windows"/>
         <parameter name="browser" value="chrome"/>
