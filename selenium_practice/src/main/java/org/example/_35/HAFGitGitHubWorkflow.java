@@ -1,3 +1,4 @@
+package org.example._35;
 public class HAFGitGitHubWorkflow{
 /**
          * 12) Run Tests using Maven pom.xml, Command Prompt, run.bat file

@@ -1,3 +1,4 @@
+package org.example._30;
 public class HAFLogsPropertiesCrossBrowser{
 /**
          * 2) Adding logs to Test Cases (log4j2) : recording all events in the form of text

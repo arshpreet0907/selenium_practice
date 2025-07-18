@@ -1,3 +1,4 @@
+package org.example._34;
 public class HAFDockerIntegrationWithSeleniumGrid{
   /**
          * 11) Run tests on Docker with Selenium Environment :

@@ -1,0 +1,17 @@
+14:54:02.330 [TestNG-test-Test1-1] INFO  testCases.TC003DataDrivenLoginTest36) ***** Starting TC003DataDrivenLoginTest *****
+14:54:08.757 [TestNG-test-Test1-1] INFO  testCases.TC003DataDrivenLoginTest36) ***** Finished TC003DataDrivenLoginTest *****
+14:54:08.757 [TestNG-test-Test1-1] INFO  testCases.TC003DataDrivenLoginTest36) ***** Starting TC003DataDrivenLoginTest *****
+14:54:10.926 [TestNG-test-Test1-1] INFO  testCases.TC003DataDrivenLoginTest36) ***** Finished TC003DataDrivenLoginTest *****
+14:54:10.929 [TestNG-test-Test1-1] INFO  testCases.TC003DataDrivenLoginTest36) ***** Starting TC003DataDrivenLoginTest *****
+14:54:16.984 [TestNG-test-Test1-1] INFO  testCases.TC003DataDrivenLoginTest36) ***** Finished TC003DataDrivenLoginTest *****
+14:54:16.986 [TestNG-test-Test1-1] INFO  testCases.TC003DataDrivenLoginTest36) ***** Starting TC003DataDrivenLoginTest *****
+14:54:23.440 [TestNG-test-Test1-1] INFO  testCases.TC003DataDrivenLoginTest36) ***** Finished TC003DataDrivenLoginTest *****
+14:54:27.341 [TestNG-test-Test2-1] INFO  testCases.TC001AccountRegistrationTest36) ****Starting TC001AccountRegistrationTest*****
+14:54:27.451 [TestNG-test-Test2-1] INFO  testCases.TC001AccountRegistrationTest36) Clicked on my account link
+14:54:28.343 [TestNG-test-Test2-1] INFO  testCases.TC001AccountRegistrationTest36) Clicked on register link
+14:54:28.347 [TestNG-test-Test2-1] INFO  testCases.TC001AccountRegistrationTest36) adding customer details
+14:54:29.986 [TestNG-test-Test2-1] INFO  testCases.TC001AccountRegistrationTest36) validating expected message
+14:54:30.044 [TestNG-test-Test2-1] DEBUG testCases.TC001AccountRegistrationTest36) Debug logs without error...
+14:54:30.044 [TestNG-test-Test2-1] INFO  testCases.TC001AccountRegistrationTest36) ****Finished TC001AccountRegistrationTest*****
+14:54:34.793 [TestNG-test-Test3-1] INFO  testCases.TC002LoginTest36) ***** Starting TC002LoginTest *****
+14:54:36.868 [TestNG-test-Test3-1] INFO  testCases.TC002LoginTest36) ***** Finished TC002LoginTest *****

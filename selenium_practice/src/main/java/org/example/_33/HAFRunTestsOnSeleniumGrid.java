@@ -1,3 +1,4 @@
+package org.example._33;
 public class HAFRunTestsOnSeleniumGrid{
         /**
          * 10) Run Tests on Selenium Grid :

@@ -1,4 +1,5 @@
-public class JenkinsCISetupFinalSession{
+package org.example._36;
+public class HAFJenkinsCISetupFinalSession{
  /**
          * 14) Run tests using Jenkins :
                  * Devops : CI/CD process as infinity logo

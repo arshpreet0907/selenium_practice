@@ -1,3 +1,4 @@
+package org.example._32;
 public class HAFGroupingTestsExtentReports{
     /**
          * 7) Grouping tests :
