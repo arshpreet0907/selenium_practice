@@ -1,8 +1,0 @@
-for standalone : (hub + node) 
-java -jar selenium-server-4.34.0.jar standalone
-
-for different machines (hub and node separate) :
-hub : java -jar selenium-server-4.34.0.jar hub
-node : java -jar selenium-server-4.34.0.jar node--hub http://<hub-ip>:4444
-
-to see sessions: http://localhost:4444/
