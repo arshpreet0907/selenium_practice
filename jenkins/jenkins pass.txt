@@ -1,7 +1,0 @@
-3b33a59665604280bd8a58ea4ae12822
-
-user name : admin
-password : admin
-full name : Arshpreet
-email : arshpreet0907singh@gmail.com
-url : http://localhost:8080/

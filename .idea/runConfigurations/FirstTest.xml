@@ -1,0 +1,25 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="FirstTest" type="TestNG">
+    <module name="selenium_practice" />
+    <shortenClasspath name="NONE" />
+    <useClassPathOnly />
+    <option name="SUITE_NAME" value="" />
+    <option name="PACKAGE_NAME" value="org.example" />
+    <option name="MAIN_CLASS_NAME" value="org.example._22FirstTestCase" />
+    <option name="GROUP_NAME" value="" />
+    <option name="TEST_OBJECT" value="CLASS" />
+    <option name="PARAMETERS" value="" />
+    <option name="OUTPUT_DIRECTORY" value="D:\training\selenium\IdeaProjects\selenium_practice\test-output\first_test" />
+    <option name="TEST_SEARCH_SCOPE">
+      <value defaultName="moduleWithDependencies" />
+    </option>
+    <option name="PROPERTIES_FILE" value="" />
+    <properties />
+    <listeners>
+      <listener class="org.testng.reporters.EmailableReporter2" />
+    </listeners>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
